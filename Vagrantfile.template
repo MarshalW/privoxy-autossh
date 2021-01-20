@@ -1,0 +1,21 @@
+# encoding: UTF-8
+
+NETWORK_INTERFACE = "eth0"
+
+Vagrant.configure("2") do |config|
+
+  config.vm.provision :shell, privileged: true, path: "./scripts/init_common.sh"
+
+  config.vm.define :proxy do |proxy|
+    proxy.vm.provider :virtualbox do |vb|
+      vb.name = "proxy"
+      vb.memory = 1024
+      vb.cpus = 2
+    end
+    proxy.vm.box = "ubuntu/focal64"
+    proxy.vm.hostname = "proxy"
+    proxy.vm.network :public_network, ip: "192.168.0.111", bridge: NETWORK_INTERFACE
+  end
+
+  config.vm.provision :shell, privileged: false, path: "./scripts/set_users.sh"
+end

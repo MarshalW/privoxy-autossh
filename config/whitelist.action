@@ -1,0 +1,12 @@
+{{alias}}
+direct = +forward-override{forward .}
+whitelist = +forward-override{forward-socks5 autossh-server:1337 .}
+
+#default
+{direct}
+/
+
+#whitelist
+{whitelist}
+.google.com
+.cip.cc

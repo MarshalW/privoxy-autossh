@@ -1,0 +1,5 @@
+Host sjhk
+    HostName ${SSH_SERVER_IP}
+    Port ${SSH_SERVER_PORT}
+    User ${SSH_USERNAME}
+    IdentityFile ~/.ssh/id_rsa
