@@ -1,0 +1,4 @@
+.vagrant
+config/config
+config/id_rsa*
+Vagrantfile
